@@ -13,6 +13,15 @@ if (leadsFromLocalStorage) {
 
 
 function HandleLeads() {
+
+    this.collectDatafromCorrectTab = () =>{    
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+            myLeads.push(tabs[0].url)
+            localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+            render(myLeads)
+        })
+    }
+
     this.storeLeadToLocalStorage = () => {
         myLeads.push(inputEl.value)
         inputEl.value = ""
@@ -21,13 +30,7 @@ function HandleLeads() {
     }
 }
 
-tabBtn.addEventListener("click", function(){    
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        myLeads.push(tabs[0].url)
-        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-        render(myLeads)
-    })
-})
+tabBtn.addEventListener("click", sortLead.collectDatafromCorrectTab)
 
 function render(leads) {
     let listItems = ""
@@ -49,6 +52,6 @@ deleteBtn.addEventListener("dblclick", function() {
     render(myLeads)
 })
 
-inputBtn.addEventListener("click", sortLead.storeLeadToLocalStorage())
+inputBtn.addEventListener("click", sortLead.storeLeadToLocalStorage)
 
 const sortLead = new HandleLeads()
