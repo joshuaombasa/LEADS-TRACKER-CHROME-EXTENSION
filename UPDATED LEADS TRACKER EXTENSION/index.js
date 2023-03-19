@@ -1,10 +1,14 @@
-let myLeads = []
-const inputEl = document.getElementById("input-el")
-const inputBtn = document.getElementById("input-btn")
-const ulEl = document.getElementById("ul-el")
-const deleteBtn = document.getElementById("delete-btn")
-const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
-const tabBtn = document.getElementById("tab-btn")
+const myVariables = {
+myLeads : [],
+inputEl : document.getElementById("input-el"),
+inputBtn : document.getElementById("input-btn"),
+ulEl : document.getElementById("ul-el"),
+deleteBtn : document.getElementById("delete-btn"),
+leadsFromLocalStorage : JSON.parse( localStorage.getItem("myLeads") ),
+tabBtn : document.getElementById("tab-btn")
+}
+
+
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
