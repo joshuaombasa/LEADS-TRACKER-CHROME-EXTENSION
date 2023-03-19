@@ -8,7 +8,7 @@ leadsFromLocalStorage : JSON.parse( localStorage.getItem("myLeads") ),
 tabBtn : document.getElementById("tab-btn")
 }
 
-
+const {myLeads, inputEl, inputBtn, ulEl, deleteBtn, leadsFromLocalStorage, tabBtn} = myVariables
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
