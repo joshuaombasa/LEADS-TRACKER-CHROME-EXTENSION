@@ -14,6 +14,12 @@ if (leadsFromLocalStorage) {
 
 function HandleLeads() {
 
+    this.clearAllLeads = () => {
+        localStorage.clear()
+        myLeads = []
+        render(myLeads)
+    }
+
     this.collectDatafromCorrectTab = () =>{    
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
             myLeads.push(tabs[0].url)
@@ -46,11 +52,7 @@ function render(leads) {
     ulEl.innerHTML = listItems
 }
 
-deleteBtn.addEventListener("dblclick", function() {
-    localStorage.clear()
-    myLeads = []
-    render(myLeads)
-})
+deleteBtn.addEventListener("dblclick",sortLead.clearAllLeads)
 
 inputBtn.addEventListener("click", sortLead.storeLeadToLocalStorage)
 
