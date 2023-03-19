@@ -50,12 +50,13 @@ function HandleLeads() {
     }
 }
 
+const sortLead = new HandleLeads()
+
+sortLead.render()
+
 tabBtn.addEventListener("click", sortLead.collectDatafromCorrectTab)
-
-
 
 deleteBtn.addEventListener("dblclick",sortLead.clearAllLeads)
 
 inputBtn.addEventListener("click", sortLead.storeLeadToLocalStorage)
 
-const sortLead = new HandleLeads()
