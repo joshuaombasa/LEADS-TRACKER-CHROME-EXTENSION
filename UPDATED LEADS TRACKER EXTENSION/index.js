@@ -12,8 +12,13 @@ if (leadsFromLocalStorage) {
 }
 
 
-function handleLeads() {
-    
+function HandleLeads() {
+    this.storeLeadToLocalStorage = () => {
+        myLeads.push(inputEl.value)
+        inputEl.value = ""
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        render(myLeads)
+    }
 }
 
 tabBtn.addEventListener("click", function(){    
@@ -44,9 +49,6 @@ deleteBtn.addEventListener("dblclick", function() {
     render(myLeads)
 })
 
-inputBtn.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    render(myLeads)
-})
+inputBtn.addEventListener("click", sortLead.storeLeadToLocalStorage())
+
+const sortLead = new HandleLeads()
