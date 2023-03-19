@@ -35,7 +35,7 @@ function HandleLeads() {
         render(myLeads)
     }
 
-    this.function render(leads) {
+    this.render = (leads) => {
         let listItems = ""
         for (let i = 0; i < leads.length; i++) {
             listItems += `
