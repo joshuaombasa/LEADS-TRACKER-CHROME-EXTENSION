@@ -12,10 +12,10 @@ const {myLeads, inputEl, inputBtn, ulEl, deleteBtn, leadsFromLocalStorage, tabBt
 
 
 
-// if (leadsFromLocalStorage) {
-//     myLeads = leadsFromLocalStorage
-//     render(myLeads)
-// }
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    render(myLeads)
+}
 
 
 function HandleLeads() {
