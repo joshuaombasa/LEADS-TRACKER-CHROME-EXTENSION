@@ -10,10 +10,12 @@ tabBtn : document.getElementById("tab-btn")
 
 const {myLeads, inputEl, inputBtn, ulEl, deleteBtn, leadsFromLocalStorage, tabBtn} = myVariables
 
-if (leadsFromLocalStorage) {
-    myLeads = leadsFromLocalStorage
-    render(myLeads)
-}
+leadsFromLocalStorage === true ? myLeads = leadsFromLocalStorage && render(myLeads) : {}
+
+// if (leadsFromLocalStorage) {
+//     myLeads = leadsFromLocalStorage
+//     render(myLeads)
+// }
 
 
 function HandleLeads() {
